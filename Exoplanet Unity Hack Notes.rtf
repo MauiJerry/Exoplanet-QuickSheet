@@ -42,6 +42,26 @@ Created Public repository on my MauiJerry account\
 And it still works.\
 commit the first import\
 \
+May need to remove parts of QuickSheet when moving this to ExoPlanetViz project as did last time\
+maybe I can just move my code from Exoplanet-Quicksheet to the isdale branch of Viz\
+\
+Organization of assets may want some improvement but i\'92m not going to change much at this point to avoid breaking the QS stuff.\
+QuickSheets uses import scripts to define how xls files are converted into ScriptableObjects\
+We have two of these under StarPlanetDB\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 	QuickSheet_Import_Planets\
+	QuickSheet_Import_Stars\
+these read the xls files, create the runtime/editor CS and the .asset for the spreadsheet - named for the SHEET name not the spreadsheet name\
+\
+Created Folder StarPlanetDB/DBCode for my code\
+ExoplanetData is the GameObject in scene\
+ExoplanetDB is the script that loads data and provides some functions on it\
+Selection of stars and planets is done using the LINQ system \
+examples is given to return a list of all stars with earth or smaller planets\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
 \
 \
 }
