@@ -5,6 +5,9 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Keep QuickSheet Library
+!Assets/QuickSheet/ExcelPlugin/Editor/Library
+
 # Visual Studio cache directory
 .vs/
 
