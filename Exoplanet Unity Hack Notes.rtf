@@ -63,6 +63,14 @@ copied StarPlanetDB to the ExoPlanetViz isdale branch\
 needed to reimport both the xls files (select, right click, reImport)\
 then add them on a new empty GameObject (ExoplanetDB)\
 \
+A few issues with QuickSheets in Unity and GitHub\
+The default .gitignore does not upload Library folders, of which there is one buried down int QuickSheets/ExcelPlugin/Editor folder.  Without these there are various things in ExcelQuery.cs that go unfound (NPOI, IWorkbook, ISheet, ICell).\
+Probably should edit the .gitinore to include these\
+\
+Also a conflict between QuickSheets and MixedReality\
+Both include NewtonSoft.Json library and this confuses Unity C# compile.\
+Compress and archive the Quicksheets/GDataPlugin/Editor/Google versions\
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
