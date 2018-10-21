@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+public class StarNamePosition {
+    public string name;
+    public Vector3 position;
+}
+
 public class ExoplanetDB : MonoBehaviour
 {
     public Exoplanet_StarsUnique2 stars;
@@ -24,6 +29,17 @@ public class ExoplanetDB : MonoBehaviour
                 Debug.LogFormat("  Star {0} has {1} planets", star.Pl_hostname, star.Pl_pnum);
             }
         }
+        List<StarNamePosition> starList2 = getStarNamePosition();
+        if (starList2.Count > 0)
+        {
+            Debug.LogFormat("There are {0} stars", starList2.Count);
+
+            foreach (var star in starList2)
+            {
+                Debug.LogFormat("  Star {0} has position {1}", star.name, star.position.ToString());
+            }
+        }
+
     }
 
     List<Exoplanet_StarsUnique2Data> first100Stars()
@@ -65,5 +81,14 @@ public class ExoplanetDB : MonoBehaviour
                        where (p.Pl_rade <= 1.0 && p.Pl_rade > 0) && (p.Pl_hostname == s.Pl_hostname)
                        select s;
         return starList.Distinct().ToList();
+    }
+
+    List<StarNamePosition> getStarNamePosition() 
+    {
+        var starList = from s in stars.dataArray
+                                      select new StarNamePosition { 
+                            name = s.Pl_hostname, position = GetStarLocation(s) 
+                        };
+        return starList.ToList();
     }
 }
